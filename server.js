@@ -7,8 +7,22 @@ app.use(cors());
 app.use(express.json());
 
 // 🔑 Get your free key from: https://aistudio.google.com/apikey
-const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE';
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+const GEMINI_API_KEY = 'AQ.Ab8RN6IJHqjD5X5OTu_A__iLI18dsfmwaNhp6cySNmpJWkr8QA';
+const GEMINI_API_URL = 'curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent" \
+  -H 'Content-Type: application/json' \
+  -H 'X-goog-api-key: AQ.Ab8RN6IJHqjD5X5OTu_A__iLI18dsfmwaNhp6cySNmpJWkr8QA' \
+  -X POST \
+  -d '{
+    "contents": [
+      {
+        "parts": [
+          {
+            "text": "Explain how AI works in a few words"
+          }
+        ]
+      }
+    ]
+  }';
 
 // Call real Gemini AI
 async function getAIResponse(userMessage) {
